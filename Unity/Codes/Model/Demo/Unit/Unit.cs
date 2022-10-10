@@ -8,6 +8,8 @@ namespace ET
     {
         public int ConfigId; //配置表id
 
+        public UnitType UnitType { get; set; }
+
         [BsonIgnore]
         public UnitConfig Config => UnitConfigCategory.Instance.Get(this.ConfigId);
 
@@ -34,6 +36,7 @@ namespace ET
         }
 
         private WrapQuaternion rotation = new WrapQuaternion();
+
         public Quaternion Rotation
         {
             get => this.rotation.Value;
