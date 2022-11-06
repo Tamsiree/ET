@@ -7,13 +7,12 @@ namespace ET
         public struct AppStart
         {
         }
-        
 
         public struct SceneChangeStart
         {
             public Scene ZoneScene;
         }
-        
+
         public struct SceneChangeFinish
         {
             public Scene ZoneScene;
@@ -23,7 +22,7 @@ namespace ET
         public class ChangePosition: DisposeObject
         {
             public static readonly ChangePosition Instance = new ChangePosition();
-            
+
             public Unit Unit;
             public WrapVector3 OldPos = new WrapVector3();
 
@@ -37,9 +36,9 @@ namespace ET
         public class ChangeRotation: DisposeObject
         {
             public static readonly ChangeRotation Instance = new ChangeRotation();
-            
+
             public Unit Unit;
-            
+
             // 因为是重复利用的，所以用完PublishClass会调用Dispose
             public override void Dispose()
             {
@@ -52,17 +51,17 @@ namespace ET
             public Scene ZoneScene;
             public long Ping;
         }
-        
+
         public struct AfterCreateZoneScene
         {
             public Scene ZoneScene;
         }
-        
+
         public struct AfterCreateCurrentScene
         {
             public Scene CurrentScene;
         }
-        
+
         public struct AfterCreateLoginScene
         {
             public Scene LoginScene;
@@ -97,7 +96,7 @@ namespace ET
         {
             public Unit Unit;
         }
-        
+
         public struct MoveStart
         {
             public Unit Unit;
@@ -106,6 +105,16 @@ namespace ET
         public struct MoveStop
         {
             public Unit Unit;
+        }
+
+        public struct InstallComputer
+        {
+            public Computer Computer;
+        }
+        
+        public struct InstallComputerAsync
+        {
+            public Computer Computer;
         }
     }
 }

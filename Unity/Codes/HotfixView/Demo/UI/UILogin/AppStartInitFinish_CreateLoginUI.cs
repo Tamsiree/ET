@@ -6,21 +6,31 @@
         {
             UIHelper.Create(args.ZoneScene, UIType.UILogin, UILayer.Mid).Coroutine();
 
-            Test(args.ZoneScene).Coroutine();
+            Computer computer = args.ZoneScene.AddChild<Computer>();
+
+            Game.EventSystem.PublishAsync(new EventType.InstallComputerAsync() { Computer = computer }).Coroutine();
+            
+            // Test(args.ZoneScene).Coroutine();
         }
 
         public async ETTask Test(Scene zoneScene)
         {
             Computer computer = zoneScene.AddChild<Computer>();
 
-            computer.AddComponent<PCCaseComponent>();
+            Game.EventSystem.PublishAsync(new EventType.InstallComputerAsync() { Computer = computer }).Coroutine();
+            // Game.EventSystem.Publish(new EventType.InstallComputer() { Computer = computer });
+
+            // computer.Start();
+
+            /*computer.AddComponent<PCCaseComponent>();
             computer.AddComponent<MonitorsComponent>();
             computer.AddComponent<KeyboardComponent>();
             computer.AddComponent<MouseComponent>();
 
             computer.Start();
+            */
 
-            await TimerComponent.Instance.WaitAsync(3000);
+            /*await TimerComponent.Instance.WaitAsync(3000);
 
             computer.Dispose();
 
@@ -35,7 +45,7 @@
             }
 
             var heightConfig = UnitConfigCategory.Instance.GetUnitConfigByHeight(178);
-            Log.Debug(heightConfig.Name);
+            Log.Debug(heightConfig.Name);*/
         }
     }
 }
