@@ -9,6 +9,10 @@
 		Http = 4,
 		Location = 5,
 		Map = 6,
+		/// <summary>
+		/// 账号登录验证
+		/// </summary>
+		Account,
 
 		// 客户端Model层
 		Client = 30,

@@ -46,6 +46,12 @@ namespace ET
             Log.Debug("Computer Start!!!!!!!!");
             self.GetComponent<PCCaseComponent>().StartPower();
             self.GetComponent<MonitorsComponent>().Display();
+
+            // self.ZoneScene();
+            self.DomainScene();
+
+            // 不推荐
+            var domain = self.Domain;
         }
     }
 }

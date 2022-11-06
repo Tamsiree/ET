@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.App", "Server\App\Se
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Model", "Server\Model\Server.Model.csproj", "{EE38E3D2-3D2A-4061-BD50-AE8568126C7D}"
-EndProject
+EndProject  
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Hotfix", "Server\Hotfix\Server.Hotfix.csproj", "{C305ED5B-8425-47A1-BEE1-85830CADC27A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Model", "Unity\Unity.Model.csproj", "{9498BFB4-D9F5-C441-13E3-3F26F7700E29}"
