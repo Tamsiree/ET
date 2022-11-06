@@ -1,4 +1,6 @@
-﻿namespace ET
+﻿using System.Numerics;
+
+namespace ET
 {
     public class AppStartInitFinish_CreateLoginUI: AEventAsync<EventType.AppStartInitFinish>
     {
@@ -16,9 +18,12 @@
             // this.TestAsync().Coroutine();  
             // int result = await this.TestResultAsync();
             // Log.Debug($"result: {result}");
-            
-            
+
+            ETCancellationToken cancellationToken = new ETCancellationToken();
+            MoveToAsync(Vector3.Zero, cancellationToken).Coroutine();
+
             Log.Debug("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+            cancellationToken.Cancel();
         }
 
         public async ETTask Test(Scene zoneScene)
@@ -70,6 +75,20 @@
             Log.Debug("22222222222222222222222222");
 
             return 10;
+        }
+
+        public async ETTask MoveToAsync(Vector3 pos, ETCancellationToken cancellationToken)
+        {
+            Log.Debug("Move Start!!!");
+            bool result = await TimerComponent.Instance.WaitAsync(3000, cancellationToken);
+            if (result)
+            {
+                Log.Debug("Move Over!");
+            }
+            else
+            {
+                Log.Debug("Move Stop!");
+            }
         }
     }
 }
