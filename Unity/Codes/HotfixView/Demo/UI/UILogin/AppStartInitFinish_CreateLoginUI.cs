@@ -1,16 +1,24 @@
 ﻿namespace ET
 {
-    public class AppStartInitFinish_CreateLoginUI: AEvent<EventType.AppStartInitFinish>
+    public class AppStartInitFinish_CreateLoginUI: AEventAsync<EventType.AppStartInitFinish>
     {
-        protected override void Run(EventType.AppStartInitFinish args)
+        protected override async ETTask Run(EventType.AppStartInitFinish args)
         {
-            UIHelper.Create(args.ZoneScene, UIType.UILogin, UILayer.Mid).Coroutine();
+            await UIHelper.Create(args.ZoneScene, UIType.UILogin, UILayer.Mid);
 
-            Computer computer = args.ZoneScene.AddChild<Computer>();
+            /*Computer computer = args.ZoneScene.AddChild<Computer>();
 
-            Game.EventSystem.PublishAsync(new EventType.InstallComputerAsync() { Computer = computer }).Coroutine();
-            
+            Game.EventSystem.PublishAsync(new EventType.InstallComputerAsync() { Computer = computer }).Coroutine();*/
+
             // Test(args.ZoneScene).Coroutine();
+
+            Log.Debug("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            // this.TestAsync().Coroutine();  
+            // int result = await this.TestResultAsync();
+            // Log.Debug($"result: {result}");
+            
+            
+            Log.Debug("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
         }
 
         public async ETTask Test(Scene zoneScene)
@@ -46,6 +54,22 @@
 
             var heightConfig = UnitConfigCategory.Instance.GetUnitConfigByHeight(178);
             Log.Debug(heightConfig.Name);*/
+        }
+
+        public async ETTask TestAsync()
+        {
+            Log.Debug("11111111111111111111111111");
+            await TimerComponent.Instance.WaitAsync(2000);
+            Log.Debug("22222222222222222222222222");
+        }
+
+        public async ETTask<int> TestResultAsync()
+        {
+            Log.Debug("11111111111111111111111111");
+            await TimerComponent.Instance.WaitAsync(2000);
+            Log.Debug("22222222222222222222222222");
+
+            return 10;
         }
     }
 }
